@@ -1,0 +1,17 @@
+<h2>My Heroes</h2>
+<ul class="npcs">
+    <li *ngFor="let npc of npcs" 
+        [class.selected]="npc === selectedNpc"
+        (click)="onSelect(npc)">
+        <span class="badge">{{npc.id}}</span> {{npc.name}}
+    </li>
+</ul>
+
+<div *ngIf="selectedNpc">
+    <h2>{{selectedNpc.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedNpc.id}}</div>
+    <div>
+        <label for="npc-name">Hero name: </label>
+        <input id="npc-name" [(ngModel)]="selectedNpc.name" placeholder="name">
+    </div>
+</div>
