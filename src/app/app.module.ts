@@ -3,15 +3,18 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NpcComponent } from './npc/npc.component';
 import { BacklogComponent } from './backlog/backlog.component';
+import { NpcDetailComponent } from './npc-detail/npc-detail.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
+    BacklogComponent,
     AppComponent,
     NpcComponent,
-    BacklogComponent
+    NpcDetailComponent
   ],
   imports: [
     BrowserModule,
