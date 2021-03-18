@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Npc } from '../npc';
-import { NPCS } from '../mock-npcs';
+
+import { NpcService } from '../npc.service';
 
 @Component({
   selector: 'app-npc',
@@ -8,22 +9,23 @@ import { NPCS } from '../mock-npcs';
   styleUrls: ['./npc.component.css']
 })
 export class NpcComponent implements OnInit {
-  npc: Npc = {
-    id: 1,
-    name: 'Windstorm'
-  };
-
-  npcs = NPCS;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
   selectedNpc?: Npc;
+
+  npcs: Npc[] = [];
+
+  constructor(private npcService: NpcService) { }
+
+  ngOnInit() { 
+    this.getNpcs(); 
+  }
+  
   onSelect(npc: Npc): void {
   this.selectedNpc = npc;
 }
 
+getNpcs(): void{
+  this.npcService.getNpcs()
+    .subscribe(npcs => this.npcs = npcs);
+}
 
 }

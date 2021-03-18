@@ -8,11 +8,10 @@ import { Npc } from '../npc';
 })
 export class NpcDetailComponent implements OnInit {
   @Input() npc?: Npc;
-  
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
   
 }
